@@ -4,7 +4,7 @@ import random
 __author__ = "Shobhit Kundu"
 __copyright__ = "Copyright (C) 2020 Shobhit Kundu"
 __license__ = "Public Demo"
-__version__ = "1.0"
+__version__ = "1.3"
 
 keys = {16: "M2~A10~S4:20408", 32: "M4~A12~S16~A4:141002", 64: "M8~A12~S32:21276", 128: "M16~A12~S64~A16:150575"}
 d_key = keys.get(random.choice([16, 32, 64, 128]))

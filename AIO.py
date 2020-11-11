@@ -9,7 +9,7 @@ from tkinter.filedialog import askopenfilename
 __author__ = "Shobhit Kundu"
 __copyright__ = "Copyright (C) 2020 Shobhit Kundu"
 __license__ = "Public Demo"
-__version__ = "1.0"
+__version__ = "1.5"
 
 extension = ""
 filename = ""
@@ -20,6 +20,11 @@ def ext():
 
 
 def to_encrypt(file_name):
+    """__author__ = "Shobhit Kundu"
+    __copyright__ = "Copyright (C) 2020 Shobhit Kundu"
+    __license__ = "Public Demo"
+    __version__ = "1.3"""
+
     keys = {16: "M2~A10~S4:20408", 32: "M4~A12~S16~A4:141002", 64: "M8~A12~S32:21276", 128: "M16~A12~S64~A16:150575"}
     d_key = keys.get(random.choice([16, 32, 64, 128]))
 
@@ -68,6 +73,11 @@ def to_encrypt(file_name):
 
 
 def to_decrypt(file_name):
+    """__author__ = "Shobhit Kundu"
+    __copyright__ = "Copyright (C) 2020 Shobhit Kundu"
+    __license__ = "Public Demo"
+    __version__ = "1.2"""
+
     if not file_name.endswith(".skpe"):
         return "Error : Wrong File Type Selected"
 
@@ -174,21 +184,27 @@ def get_filename(process):
 
 main_window = data_frame.Tk()
 main_window.wm_title("Shobhit's Encryption Decryption Asset")
-main_window.geometry('605x200')
+main_window.geometry('605x225')
 label_top = data_frame.Label(main_window, text="Encrypted Data Protector", font=('ARIAL', 30))
 label_top.grid(row=0, column=1, sticky=N, columnspan=3)
 encrypt_btn = data_frame.Button(main_window, text="Encrypt File", state=NORMAL, command=encrypt, width=20, height=2)
 encrypt_btn.grid(row=1, column=2, sticky=N)
 decrypt_btn = data_frame.Button(main_window, text="Decrypt File", state=NORMAL, command=decrypt, width=20, height=2)
 decrypt_btn.grid(row=2, column=2, sticky=N)
+spacer_main = data_frame.Label(main_window)
+spacer_main.grid(row=3, column=0, columnspan=5)
 back_btn = data_frame.Button(main_window, text="Back", state=DISABLED, command=main, width=9, height=1)
-back_btn.grid(padx=3, row=3, column=0, sticky=SE)
-exit_btn = data_frame.Button(main_window, text="Exit", state=NORMAL, command=ext, width=9, height=1)
-exit_btn.grid(row=3, column=4, sticky=SW)
+back_btn.grid(padx=3, row=4, column=0, sticky=SE)
+exit_btn = data_frame.Button(main_window, text="Exit", state=NORMAL, command=exit, width=9, height=1)
+exit_btn.grid(row=4, column=4, sticky=SW)
+spacer_main1 = data_frame.Label(main_window)
+spacer_main1.grid(row=5, column=0, columnspan=5)
+cclabel_main = data_frame.Label(main_window, text=f"Software CC: {__copyright__}, Creator: {__author__}, Version: {__version__}", background= "Yellow")
+cclabel_main.grid(row=6, column=0, columnspan=5)
 
 encrypt_window = data_frame.Tk()
 encrypt_window.wm_title("Shobhit's Encryption Asset")
-encrypt_window.geometry('605x200')
+encrypt_window.geometry('605x225')
 label_top_enc = data_frame.Label(encrypt_window, text="Data Encryption Software", font=('ARIAL', 30))
 label_top_enc.grid(row=0, column=1, sticky=N, columnspan=3)
 gf_btn_en = data_frame.Button(encrypt_window, text="Select File", state=NORMAL, command=lambda: get_filename("e"), width=20, height=2)
@@ -203,12 +219,16 @@ back_btn_en = data_frame.Button(encrypt_window, text="Back", state=NORMAL, comma
 back_btn_en.grid(padx=2, row=5, column=0, sticky=SE)
 done_btn_en = data_frame.Button(encrypt_window, text="Done", state=DISABLED, command=main, width=9, height=1)
 done_btn_en.grid(row=5, column=2)
-exit_btn_en = data_frame.Button(encrypt_window, text="Exit", state=NORMAL, command=ext, width=9, height=1)
+exit_btn_en = data_frame.Button(encrypt_window, text="Exit", state=NORMAL, command=exit, width=9, height=1)
 exit_btn_en.grid(row=5, column=4, sticky=SW)
+spacer_en = data_frame.Label(encrypt_window)
+spacer_en.grid(row=6, column=0, columnspan=5)
+cclabel_en = data_frame.Label(encrypt_window, text=f"Software CC: {__copyright__}, Creator: {__author__}, Version: {__version__}", background= "Yellow")
+cclabel_en.grid(row=7, column=0, columnspan=5)
 
 decrypt_window = data_frame.Tk()
 decrypt_window.wm_title("Shobhit's Decryption Asset")
-decrypt_window.geometry('605x200')
+decrypt_window.geometry('605x225')
 label_top_enc = data_frame.Label(decrypt_window, text="Data Decryption Software", font=('ARIAL', 30))
 label_top_enc.grid(row=0, column=1, sticky=N, columnspan=3)
 gf_btn_de = data_frame.Button(decrypt_window, text="Select File", state=NORMAL, command=lambda: get_filename("d"), width=20, height=2)
@@ -223,19 +243,22 @@ back_btn_de = data_frame.Button(decrypt_window, text="Back", state=NORMAL, comma
 back_btn_de.grid(padx=1, row=5, column=0, sticky=SE)
 done_btn_de = data_frame.Button(decrypt_window, text="Done", state=DISABLED, command=main, width=9, height=1)
 done_btn_de.grid(row=5, column=2)
-exit_btn_de = data_frame.Button(decrypt_window, text="Exit", state=NORMAL, command=ext, width=9, height=1)
+exit_btn_de = data_frame.Button(decrypt_window, text="Exit", state=NORMAL, command=exit, width=9, height=1)
 exit_btn_de.grid(row=5, column=4, sticky=SW)
+spacer_de = data_frame.Label(decrypt_window)
+spacer_de.grid(row=6, column=0, columnspan=5)
+cclabel_de = data_frame.Label(decrypt_window, text=f"Software CC: {__copyright__}, Creator: {__author__}, Version: {__version__}", background= "Yellow")
+cclabel_de.grid(row=7, column=0, columnspan=5)
 
 try:
-    decrypt_window.wm_iconbitmap("icon.ico")
     main_window.wm_iconbitmap("icon.ico")
     encrypt_window.wm_iconbitmap("icon.ico")
+    decrypt_window.wm_iconbitmap("icon.ico")
 except _tkinter.TclError:
     pass
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     encrypt_window.withdraw()
     decrypt_window.withdraw()
-
     main_window.mainloop()
